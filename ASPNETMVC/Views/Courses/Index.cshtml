@@ -1,0 +1,30 @@
+﻿@model IList<CoursesManagement.Domain.Course>
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Courses List</h2>
+<table class="table">
+    <thead>
+        <td>Course Name</td>
+        <td>Teacher</td>
+        <td>Students List</td>
+    </thead>
+    <tbody>
+        @foreach(var course in Model)
+        {
+        <tr>
+            <td>@course.Name</td>
+            <td>@course.Teacher.Name</td>
+            <td>
+                @foreach (var student in course.Students)
+                {
+                    @(student.Name + " ")
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
